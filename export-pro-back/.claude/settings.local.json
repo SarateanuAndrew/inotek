@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/Andrei/Projects/inotek/export-pro-ai/**)",
+      "Read(//d/Andrei/Projects/inotek/export-pro-ui/**)",
+      "Bash(npm install *)",
+      "PowerShell(Get-ChildItem *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Andrei\\\\Projects\\\\inotek\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Andrei\\\\Projects\\\\inotek\\\\export-pro-ai\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "PowerShell(Get-ChildItem -Path \"D:\\\\Andrei\\\\Projects\\\\inotek\\\\export-pro-ai\" -Recurse | Where-Object { $_.PSIsContainer -eq $false } | ForEach-Object { $_.FullName })",
+      "Bash(mvn compile *)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "PowerShell(netstat *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(Start-Sleep -Seconds 8; Invoke-RestMethod -Uri \"http://localhost:8080/api/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"apicul@demo.com\",\"password\":\"password\"}' | ConvertTo-Json)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"apicul@demo.com\",\"password\":\"password\"}' | ConvertTo-Json)",
+      "PowerShell($token = \\(Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"apicul@demo.com\",\"password\":\"password\"}'\\).data.token; $headers = @{Authorization=\"Bearer $token\"}; $company = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/companies/my\" -Headers $headers; $companyId = $company.data[0].id; Write-Host \"Company: $\\($company.data[0].name\\) \\(ID: $companyId\\)\"; $products = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/products/company/$companyId\" -Headers $headers; Write-Host \"Products \\($\\($products.data.Count\\)\\):\"; $products.data | ForEach-Object { Write-Host \"  - $\\($_.name\\)\" }; $cases = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/compliance/company/$companyId\" -Headers $headers; Write-Host \"Compliance cases \\($\\($cases.data.Count\\)\\):\"; $cases.data | ForEach-Object { Write-Host \"  - $\\($_.caseNumber\\) [$\\($_.status\\)] $\\($_.readinessScore\\)%\" })",
+      "PowerShell($token = \\(Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"apicul@demo.com\",\"password\":\"password\"}'\\).data.token; $headers = @{Authorization=\"Bearer $token\"}; $resp = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/companies\" -Headers $headers; Write-Host \"Company: $\\($resp.data[0].name\\) | ID: $\\($resp.data[0].id\\)\"; $companyId = $resp.data[0].id; $prods = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/products/company/$companyId\" -Headers $headers; Write-Host \"Products: $\\($prods.data.Count\\)\"; $prods.data | ForEach-Object { Write-Host \"  - $\\($_.name\\)\" })",
+      "PowerShell($token = \\(Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"apicul@demo.com\",\"password\":\"password\"}'\\).data.token; $headers = @{Authorization=\"Bearer $token\"}; $companyId = \"d754a95a-81f5-449b-bdea-42fca1643518\"; $cases = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/compliance/company/$companyId\" -Headers $headers; Write-Host \"Cases: $\\($cases.data.Count\\)\"; $cases.data | ForEach-Object { Write-Host \"  $\\($_.caseNumber\\) [$\\($_.status\\)] $\\($_.readinessScore\\)%\" })",
+      "PowerShell($token = \\(Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/auth/login\" -Method Post -ContentType \"application/json\" -Body '{\"email\":\"apicul@demo.com\",\"password\":\"password\"}'\\).data.token; $headers = @{Authorization=\"Bearer $token\"}; $companyId = \"d754a95a-81f5-449b-bdea-42fca1643518\"; $cases = Invoke-RestMethod -Uri \"http://localhost:8080/api/v1/compliance-cases/company/$companyId\" -Headers $headers; Write-Host \"Cases: $\\($cases.data.Count\\)\"; $cases.data | ForEach-Object { Write-Host \"  $\\($_.caseNumber\\) [$\\($_.status\\)] $\\($_.readinessScore\\)%\" })",
+      "Bash(node node_modules/.bin/react-scripts build)"
+    ]
+  }
+}
